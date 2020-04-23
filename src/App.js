@@ -8,8 +8,20 @@ class App extends Component {
       lists: ['vue', 'react']
     }
   }
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     console.log('组件即将挂载' + ' componentWillMount');
+  }
+  shouldComponentUpdate() {
+    return true;
+  }
+  // shouldComponentUpdate() {
+  //   return false;
+  // }
+  UNSAFE_componentWillUpdate() {
+    console.log(`组件更新 componentWillUpdata`);
+  }
+  UNSAFE_componentDidUpdate() {
+    console.log(`组件更新 componentDidUpdata`);
   }
   render() {
     console.log('页面state,props发生变化时' + ' render');
