@@ -17,9 +17,11 @@ class Junda extends Component {
 
 Junda.propTypes = {
     content: PropTypes.string,
-    index: PropTypes.number,
+    index: PropTypes.number.isRequired,
     deleteItem: PropTypes.func
 
 }
-
+Junda.defaultProps = {
+    content: 'jiajunda'
+}
 export default Junda;

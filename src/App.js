@@ -8,18 +8,25 @@ class App extends Component {
       lists: ['vue', 'react']
     }
   }
+  componentWillMount() {
+    console.log('组件即将挂载' + ' componentWillMount');
+  }
   render() {
+    console.log('页面state,props发生变化时' + ' render');
     return (
       <Fragment>
         <div><input defaultValue={this.state.value} onChange={this.handleChange.bind(this)} />
           <button onClick={this.addServer.bind(this)}> 增加服务 </button></div>
-        <ul>
+        <ul ref={ul => this.ul = ul}>
           {
             this.state.lists.map((ele, index) => (<Junda content={ele} index={index} deleteItem={this.deleteServer.bind(this)}></Junda>))
           }
         </ul>
       </Fragment>
     )
+  }
+  componentDidMount() {
+    console.log(`组件挂载完成 componentDidMount`);
   }
   handleChange(e) {
     this.setState({
@@ -31,7 +38,8 @@ class App extends Component {
     this.setState({
       lists: [...this.state.lists, this.state.value]
 
-    })
+    }, () => [...this.ul.querySelectorAll('li')].length
+    )
   }
   deleteServer(index) {
     let newLists = [...this.state.lists];
