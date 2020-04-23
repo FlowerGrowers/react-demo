@@ -20,7 +20,7 @@ class App extends Component {
   UNSAFE_componentWillUpdate() {
     console.log(`组件更新 componentWillUpdata`);
   }
-  UNSAFE_componentDidUpdate() {
+  componentDidUpdate() {
     console.log(`组件更新 componentDidUpdata`);
   }
   render() {
